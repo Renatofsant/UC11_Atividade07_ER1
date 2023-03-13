@@ -1,0 +1,56 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>teste</groupId>
+  <artifactId>teste</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>teste</name>
+  <description>teste</description>
+  <dependencies>
+	  <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>3.141.59</version>
+</dependency>
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.4</version>
+    <scope>test</scope>
+</dependency>
+  </dependencies>
+</project>
+
+
+
+package teste;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TesteBuscarinfo {
+       private WebDriver driver;
+       
+       @Before
+       public void abrirNavegador() {
+    	   System.setProperty("webdriver.chrome.driver", "C:\\Webdriver\\chromedriver.exe");
+    	   driver = new ChromeDriver ();
+    	   driver.manage().window().maximize();
+       }
+       
+       @Test
+       public void testeNavegador () {
+    	   driver.get("https://informatica.sp.senai.br/");
+    	   driver.findElement(By.id("Busca1_txtFiltro")).sendKeys("Excel");
+    	   driver.findElement(By.id("Busca1_txtFiltro")).sendKeys(Keys.RETURN);
+    	   
+    	   
+       }
+       
+}
